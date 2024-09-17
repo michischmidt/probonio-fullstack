@@ -40,6 +40,12 @@ async function bootstrap() {
     console.error('Error fetching or persisting users:', error.message);
   }
 
+  // Enable CORS
+  app.enableCors({
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  });
+
   await app.listen(3001);
 }
 bootstrap();
