@@ -1,20 +1,9 @@
 import { useState } from "react";
 import { Button, Card, CardContent, Typography, Box } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
-import httpClient from "../util/axios";
 import Grid from "@mui/material/Grid2";
 import { CenteredSpinner } from "../components/CenteredSpinner";
-
-const useGetUsers = (enabled: boolean) => {
-  return useQuery({
-    queryKey: ["users"],
-    queryFn: async (): Promise<any> => {
-      const response = await httpClient.get("http://localhost:3001/users");
-      return response.data;
-    },
-    enabled,
-  });
-};
+import { useGetUsers } from "../services/user-service";
+import { User } from "./user-types";
 
 export const UserList = () => {
   const [fetchEnabled, setFetchEnabled] = useState(false);
@@ -34,7 +23,7 @@ export const UserList = () => {
 
       {!isLoading && data && (
         <Grid container spacing={2}>
-          {data.map((user: any) => (
+          {data.map((user: User) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={user.id}>
               <Card variant="outlined" sx={{ minHeight: "250px" }}>
                 <CardContent>
