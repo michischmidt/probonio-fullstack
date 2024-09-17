@@ -9,13 +9,13 @@ export const UserList = () => {
   const [fetchEnabled, setFetchEnabled] = useState(false);
   const { data, isLoading } = useGetUsers(fetchEnabled);
 
-  const handleFetchUsers = () => {
-    setFetchEnabled(true);
-  };
-
   return (
     <Box p={3}>
-      <Button variant="outlined" sx={{ mb: 3 }} onClick={handleFetchUsers}>
+      <Button
+        variant="outlined"
+        sx={{ mb: 3 }}
+        onClick={() => setFetchEnabled(true)}
+      >
         Daten laden
       </Button>
 
