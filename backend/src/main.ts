@@ -1,10 +1,10 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
+import { UserModule } from './user/user.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(UserModule);
   const prisma = new PrismaClient();
 
   try {
@@ -35,12 +35,11 @@ async function bootstrap() {
         },
       });
     }
-
     console.log('Users fetched and persisted successfully!');
   } catch (error) {
     console.error('Error fetching or persisting users:', error.message);
   }
 
-  await app.listen(3000);
+  await app.listen(3001);
 }
 bootstrap();
