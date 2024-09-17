@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
 import { UserModule } from './user/user.module';
+import { UserDto } from './user/dto';
 
 async function bootstrap() {
   const app = await NestFactory.create(UserModule);
@@ -12,7 +13,7 @@ async function bootstrap() {
     const response = await axios.get(
       'https://jsonplaceholder.typicode.com/users',
     );
-    const users = response.data;
+    const users: UserDto[] = response.data;
 
     for (const user of users) {
       await prisma.user.create({
@@ -43,7 +44,7 @@ async function bootstrap() {
   // Enable CORS
   app.enableCors({
     origin: 'http://localhost:5173',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    methods: 'GET',
   });
 
   await app.listen(3001);

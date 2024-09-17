@@ -31,26 +31,26 @@ export const UserList = () => {
                     {user.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Username: {user.username}
+                    <strong>Username:</strong> {user.username}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Email: {user.email}
+                    <strong>Email:</strong> {user.email}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Phone: {user.phone}
+                    <strong>Phone:</strong> {user.phone}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Website: {user.website}
+                    <strong>Website:</strong> {user.website}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Address: {user.street}, {user.suite}, {user.city},{" "}
-                    {user.zipcode}
+                    <strong>Address:</strong> {user.street}, {user.suite},{" "}
+                    {user.city}, {user.zipcode}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Company: {user.companyName}
+                    <strong>Company:</strong> {user.companyName}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Catch Phrase: {user.catchPhrase}
+                    <strong>Catch Phrase:</strong> {user.catchPhrase}
                   </Typography>
                 </CardContent>
               </Card>
